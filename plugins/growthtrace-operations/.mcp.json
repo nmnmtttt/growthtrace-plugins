@@ -1,0 +1,8 @@
+{
+    "mcpServers": {
+        "growthtrace": {
+            "type": "http",
+            "url": "https://leecrafthub.com/api/mcp"
+        }
+    }
+}

@@ -1,0 +1,5 @@
+interface:
+  display_name: "GrowthTrace 组件设计"
+  short_description: "复用或设计文章展示组件，通过预览、站内审核与版本保存完成组件交付。"
+  brand_color: "#737C36"
+  default_prompt: "使用 $growthtrace-component-design 为文章设计一个时间线组件，先提供预览。"

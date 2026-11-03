@@ -1,0 +1,472 @@
+{
+  "supported": "1.x",
+  "snapshotVersion": "1.4.0",
+  "snapshotHash": "3f72f7d6e7997d4df25b99349e6387ea509451a214cd51ebf4206c805e538a11",
+  "contract": {
+    "contractVersion": "1.4.0",
+    "compilerVersion": "2.2.0",
+    "runtimeVersion": "1",
+    "policyVersion": "2.2.0",
+    "personalComponents": {
+      "inputField": "dependencies",
+      "importPattern": "@growthtrace/components/<Alias>",
+      "importStyle": "default",
+      "discovery": "list_generated_components then get_generated_component; inspect description, propsSchema and variablePaths before selecting an immutable version.",
+      "maxDirect": 10,
+      "maxTransitive": 20,
+      "maxDepth": 4
+    },
+    "sourceRules": {
+      "singleFile": true,
+      "uniqueDefaultFunction": true,
+      "nonExportedHelpersAllowed": true,
+      "maxSourceLength": 50000,
+      "maxNodeCount": 8000
+    },
+    "importRules": {
+      "rootImportAllowedUnlessDisabled": true,
+      "emptyAllowedExports": "package-named-exports",
+      "defaultImports": [
+        "react"
+      ],
+      "namespaceImports": "runtime-loader-modules-only"
+    },
+    "runtimeApis": [
+      {
+        "name": "useArticleVariable",
+        "signature": "(path: string, fallback?: value) => value | undefined",
+        "constraints": [
+          "Path must be a safe dotted identifier.",
+          "Reads the published variable snapshot."
+        ]
+      },
+      {
+        "name": "useComponentPortalHost",
+        "signature": "() => HTMLElement | null",
+        "constraints": [
+          "Returns null during SSR.",
+          "Portals must remain inside the controlled host."
+        ]
+      }
+    ],
+    "componentApis": [
+      {
+        "module": "@growthtrace/ui",
+        "names": [
+          "Badge",
+          "Button"
+        ],
+        "props": "Standard span/button props; Badge adds variant; Button adds variant, size, and asChild.",
+        "constraints": [
+          "Prefer these controls over recreating design-system primitives."
+        ]
+      },
+      {
+        "module": "@growthtrace/ui",
+        "names": [
+          "Card",
+          "CardContent",
+          "CardDescription",
+          "CardFooter",
+          "CardHeader",
+          "CardTitle"
+        ],
+        "props": "Standard div/heading props including className and children.",
+        "constraints": [
+          "Compose only the sections needed by the requested component."
+        ]
+      },
+      {
+        "module": "@growthtrace/ui",
+        "names": [
+          "Tabs",
+          "TabsContent",
+          "TabsList",
+          "TabsTrigger"
+        ],
+        "props": "Tabs accepts value/defaultValue/onValueChange; triggers and content require matching value.",
+        "constraints": [
+          "Keep the complete tab interaction inside one generated component."
+        ]
+      },
+      {
+        "module": "@growthtrace/ui",
+        "names": [
+          "Tooltip",
+          "TooltipContent",
+          "TooltipProvider",
+          "TooltipTrigger"
+        ],
+        "props": "Compose Provider > Tooltip > Trigger + Content; Trigger supports asChild.",
+        "constraints": [
+          "Do not make essential information available only on hover."
+        ]
+      },
+      {
+        "module": "@growthtrace/charts",
+        "names": [
+          "EChart"
+        ],
+        "props": "{ option: object; ariaLabel: string; theme?; initOptions?; notMerge?; lazyUpdate?; onReady?; className? }",
+        "constraints": [
+          "ariaLabel is required.",
+          "Give the chart container a static class with an explicit height."
+        ]
+      },
+      {
+        "module": "@growthtrace/mdx",
+        "names": [
+          "Admonition",
+          "Columns",
+          "Grid"
+        ],
+        "props": "Admonition requires type and children; Columns/Grid accept layout options, className, and children.",
+        "constraints": [
+          "Admonition type is note, tip, info, warning, danger, or quote."
+        ]
+      },
+      {
+        "module": "@growthtrace/mdx",
+        "names": [
+          "AnimatedBlock",
+          "AnimatedCounter",
+          "AnimatedSection",
+          "HeroHeader",
+          "ScrollProgress",
+          "StaggerList",
+          "TextReveal"
+        ],
+        "props": "Animation primitives accept documented duration/delay/threshold options; AnimatedCounter requires value; HeroHeader/TextReveal require title/text.",
+        "constraints": [
+          "Use motion only when it supports the requested hierarchy or feedback."
+        ]
+      },
+      {
+        "module": "@growthtrace/mdx",
+        "names": [
+          "NestedMdx",
+          "DisplayMdx",
+          "VariableReference"
+        ],
+        "props": "NestedMdx requires content; DisplayMdx requires code; VariableReference requires a safe dotted name.",
+        "constraints": [
+          "String content is rendered as safe display data, never as a second code entry point."
+        ]
+      },
+      {
+        "module": "@growthtrace/three",
+        "names": [
+          "Canvas",
+          "Model",
+          "ModelViewer"
+        ],
+        "props": "Canvas accepts title/resetKey and approved fiber canvas props; Model requires src; ModelViewer requires src and accepts title, fallback, autoRotate, and animation.",
+        "constraints": [
+          "Model URLs cannot be validated in the no-network sandbox."
+        ]
+      },
+      {
+        "module": "@react-three/fiber",
+        "names": [
+          "Canvas",
+          "useFrame",
+          "useThree"
+        ],
+        "props": "Use Canvas as the scene root; useFrame/useThree only inside its scene subtree.",
+        "constraints": [
+          "Prefer @growthtrace/three managed primitives when they satisfy the request."
+        ]
+      }
+    ],
+    "propsSchema": {
+      "supportedTypes": [
+        "string",
+        "number",
+        "boolean",
+        "array",
+        "object"
+      ],
+      "requiredFlag": "required",
+      "emptySchemaAllowsProps": false
+    },
+    "styling": {
+      "staticClassNamesOnly": true,
+      "extractedCss": true,
+      "intrinsicInlineStyleAllowed": false
+    },
+    "security": {
+      "networkAccess": false,
+      "dynamicCode": false,
+      "nodeApis": false,
+      "sensitiveBrowserApis": false,
+      "prototypeReflection": false,
+      "remoteMediaInSandbox": false
+    },
+    "limits": {
+      "contextMaxKeys": 100,
+      "contextMaxJsonChars": 20000,
+      "styleMaxBytes": 100000,
+      "browserBundleMaxBytes": 1250000,
+      "sandboxBundleMaxBytes": 6000000,
+      "previewTtlSeconds": 86400,
+      "previewTokenTtlSeconds": 1800
+    },
+    "renderModes": [
+      "static",
+      "interactive"
+    ],
+    "examples": {
+      "minimal": "export default function Example() { return <div className=\"p-4\">Example</div>; }",
+      "ui": "import { Card, CardContent } from '@growthtrace/ui'; export default function Example(){return <Card><CardContent className=\"p-4\">Example</CardContent></Card>;}",
+      "chart": "import { EChart } from '@growthtrace/charts'; export default function Example(){return <EChart className=\"h-72\" ariaLabel=\"Values\" option={{series:[]}}/>;}",
+      "variable": "import { useArticleVariable } from '@growthtrace/component-runtime'; export default function Example(){return <p>{String(useArticleVariable('profile.name','—'))}</p>;}"
+    },
+    "modules": [
+      {
+        "name": "@growthtrace/mdx",
+        "allowedExports": [
+          "Admonition",
+          "Columns",
+          "Grid",
+          "AnimatedBlock",
+          "AnimatedCounter",
+          "AnimatedSection",
+          "HeroHeader",
+          "ScrollProgress",
+          "StaggerList",
+          "TextReveal",
+          "NestedMdx",
+          "DisplayMdx",
+          "VariableReference"
+        ],
+        "allowedSubpaths": [],
+        "executionMode": "shared",
+        "purpose": "GrowthTrace MDX layout, animation, and variable display primitives."
+      },
+      {
+        "name": "@react-three/fiber",
+        "allowedExports": [
+          "Canvas",
+          "useFrame",
+          "useThree"
+        ],
+        "allowedSubpaths": [],
+        "executionMode": "shared",
+        "purpose": "Approved React Three Fiber scene APIs."
+      },
+      {
+        "name": "@react-three/drei",
+        "allowedExports": [
+          "OrbitControls",
+          "PerspectiveCamera",
+          "OrthographicCamera",
+          "Center",
+          "Bounds",
+          "Float",
+          "ContactShadows",
+          "useGLTF",
+          "useAnimations"
+        ],
+        "allowedSubpaths": [],
+        "executionMode": "shared",
+        "purpose": "Approved Drei scene helpers."
+      },
+      {
+        "name": "@growthtrace/three",
+        "allowedExports": [
+          "Canvas",
+          "Model",
+          "ModelViewer",
+          "useGLTF"
+        ],
+        "allowedSubpaths": [],
+        "executionMode": "shared",
+        "purpose": "GrowthTrace managed 3D canvas and model primitives."
+      },
+      {
+        "name": "three",
+        "allowedExports": [
+          "Vector2",
+          "Vector3",
+          "Vector4",
+          "Euler",
+          "Quaternion",
+          "Matrix3",
+          "Matrix4",
+          "Color",
+          "MathUtils",
+          "Box3",
+          "Sphere",
+          "Plane",
+          "Ray",
+          "Clock",
+          "Group",
+          "Object3D",
+          "Mesh",
+          "BoxGeometry",
+          "SphereGeometry",
+          "PlaneGeometry",
+          "CylinderGeometry",
+          "TorusGeometry",
+          "MeshBasicMaterial",
+          "MeshStandardMaterial",
+          "MeshPhysicalMaterial",
+          "DoubleSide",
+          "FrontSide",
+          "BackSide"
+        ],
+        "allowedSubpaths": [],
+        "executionMode": "shared",
+        "purpose": "Approved Three.js math, scene, geometry, and material APIs."
+      },
+      {
+        "name": "react",
+        "allowedExports": [
+          "Children",
+          "Component",
+          "Fragment",
+          "Profiler",
+          "PureComponent",
+          "StrictMode",
+          "Suspense",
+          "cloneElement",
+          "createContext",
+          "createRef",
+          "forwardRef",
+          "isValidElement",
+          "lazy",
+          "memo",
+          "startTransition",
+          "use",
+          "useCallback",
+          "useContext",
+          "useDebugValue",
+          "useDeferredValue",
+          "useEffect",
+          "useId",
+          "useImperativeHandle",
+          "useInsertionEffect",
+          "useLayoutEffect",
+          "useMemo",
+          "useReducer",
+          "useRef",
+          "useState",
+          "useSyncExternalStore",
+          "useTransition"
+        ],
+        "allowedSubpaths": [],
+        "executionMode": "shared",
+        "purpose": "React component and Hook APIs; JSX is required instead of createElement."
+      },
+      {
+        "name": "@growthtrace/component-runtime",
+        "allowedExports": [
+          "useArticleVariable",
+          "useComponentPortalHost"
+        ],
+        "allowedSubpaths": [],
+        "executionMode": "shared",
+        "purpose": "Read-only article variables and the controlled portal host."
+      },
+      {
+        "name": "@growthtrace/ui",
+        "allowedExports": [
+          "Badge",
+          "Button",
+          "Card",
+          "CardContent",
+          "CardDescription",
+          "CardFooter",
+          "CardHeader",
+          "CardTitle",
+          "Tabs",
+          "TabsContent",
+          "TabsList",
+          "TabsTrigger",
+          "Tooltip",
+          "TooltipContent",
+          "TooltipProvider",
+          "TooltipTrigger"
+        ],
+        "allowedSubpaths": [],
+        "executionMode": "shared",
+        "purpose": "GrowthTrace design-system primitives."
+      },
+      {
+        "name": "@growthtrace/charts",
+        "allowedExports": [
+          "EChart"
+        ],
+        "allowedSubpaths": [],
+        "executionMode": "bundled",
+        "purpose": "Managed ECharts rendering."
+      },
+      {
+        "name": "gsap",
+        "allowedExports": [
+          "gsap"
+        ],
+        "allowedSubpaths": [],
+        "executionMode": "bundled",
+        "purpose": "Scoped component animation."
+      },
+      {
+        "name": "framer-motion",
+        "allowedExports": [
+          "AnimatePresence",
+          "motion"
+        ],
+        "allowedSubpaths": [],
+        "executionMode": "bundled",
+        "purpose": "Declarative component animation."
+      },
+      {
+        "name": "lucide-react",
+        "allowedExports": [],
+        "allowedSubpaths": [],
+        "executionMode": "bundled",
+        "purpose": "Lucide icon components from the installed package version."
+      },
+      {
+        "name": "date-fns",
+        "allowedExports": [],
+        "allowedSubpaths": [
+          "date-fns/*",
+          "date-fns/locale/*"
+        ],
+        "executionMode": "bundled",
+        "purpose": "Date utilities and approved subpaths."
+      },
+      {
+        "name": "zod",
+        "allowedExports": [
+          "z"
+        ],
+        "allowedSubpaths": [],
+        "executionMode": "bundled",
+        "purpose": "Local data validation without external I/O."
+      },
+      {
+        "name": "lodash-es",
+        "rootImportAllowed": false,
+        "allowedExports": [],
+        "allowedSubpaths": [
+          "lodash-es/chunk",
+          "lodash-es/clamp",
+          "lodash-es/groupBy",
+          "lodash-es/maxBy",
+          "lodash-es/meanBy",
+          "lodash-es/minBy",
+          "lodash-es/orderBy",
+          "lodash-es/sortBy",
+          "lodash-es/sumBy",
+          "lodash-es/uniq",
+          "lodash-es/uniqBy"
+        ],
+        "executionMode": "bundled",
+        "purpose": "Approved data helpers through listed subpaths."
+      }
+    ],
+    "contractHash": "3f72f7d6e7997d4df25b99349e6387ea509451a214cd51ebf4206c805e538a11"
+  }
+}

@@ -1,0 +1,33 @@
+{
+    "name": "growthtrace-operations",
+    "version": "0.11.0",
+    "description": "连接 GrowthTrace，管理文章与关联测验，并生成可审阅的展示稿。",
+    "author": {
+        "name": "Lee's Craft",
+        "url": "https://leecrafthub.com"
+    },
+    "homepage": "https://leecrafthub.com/integrations/codex",
+    "license": "UNLICENSED",
+    "keywords": ["growthtrace", "content-operations", "mcp"],
+    "skills": "./skills/",
+    "mcpServers": "./.mcp.json",
+    "interface": {
+        "displayName": "GrowthTrace",
+        "shortDescription": "记录想法、整理写作项目，让内容持续生长",
+        "longDescription": "把讨论和灵感整理为 GrowthTrace 文章草稿，管理写作项目，并让大模型为文章设计展示形式。\n\n可用技能：\n文章测验：根据文章生成题目候选、编辑测验草稿，并按明确指令启用。\n文章管理：查找与内嵌预览普通文章、保存草稿，并按明确指令修改或发布。\n写作项目：查看项目、准备项目草案，并在确认后调整文章归属。\n内容健康：检查内容库存、元数据与重复标题，提供有依据的整理建议。\n文章展示：结合文章和内置、个人组件直接撰写 MDX，默认展示候选供审阅；明确授权后直接通过 MCP 应用并展示结果。\n组件设计：复用或设计展示组件，经过预览与站内审核后保存版本。\n网站运营：协调跨模块任务，处理图片、文档和 3D 模型静态资源上传、展示稿候选。\n\n使用前请连接 GrowthTrace 账号并完成授权。保存内容默认创建草稿；展示稿默认保存为候选并等待审阅；明确授权后可直接通过 MCP 应用并展示结果，无需再次到网站点击；公开发布和测验启用需要明确指令。当前仅面向 GrowthTrace 站长账号。",
+        "developerName": "Lee's Craft",
+        "category": "Productivity",
+        "capabilities": ["Read", "Write", "Interactive"],
+        "websiteURL": "https://leecrafthub.com/integrations/codex",
+        "defaultPrompt": [
+            "根据我的 GrowthTrace 文章生成一份测验草稿，并给我审阅链接。",
+            "把这段对话整理成一篇文章草稿，保存到 GrowthTrace。",
+            "为这篇文章生成合适的展示稿候选，并给我站内审阅链接。",
+            "查看我的写作项目，建议这篇文章适合归入哪个项目。",
+            "检查我的网站内容状况，列出最值得优先整理的文章。"
+        ],
+        "brandColor": "#737C36",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+    }
+}

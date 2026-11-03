@@ -1,0 +1,5 @@
+interface:
+    display_name: 'GrowthTrace 文章展示'
+    short_description: '撰写并预览文章展示稿；默认待审阅，明确授权后直接应用并展示。'
+    brand_color: '#737C36'
+    default_prompt: '使用 $growthtrace-article-display 为这篇 GrowthTrace 文章撰写展示稿候选，并展示预览供我审阅。'

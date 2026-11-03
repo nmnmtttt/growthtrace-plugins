@@ -1,0 +1,4 @@
+interface:
+    display_name: 'GrowthTrace 文章测验'
+    short_description: '根据文章生成与编辑关联测验，保存草稿并按明确指令启用练习。'
+    default_prompt: '使用 $growthtrace-article-quiz 根据这篇 GrowthTrace 文章生成测验草稿，并给我审阅入口。'

@@ -1,0 +1,5 @@
+interface:
+  display_name: "GrowthTrace 内容健康"
+  short_description: "检查站内内容库存、重复标题和元数据，给出有文章依据的优先整理建议。"
+  brand_color: "#737C36"
+  default_prompt: "使用 $growthtrace-content-health 检查我的网站内容，列出三项优先整理建议。"

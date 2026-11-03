@@ -1,0 +1,5 @@
+interface:
+  display_name: "GrowthTrace 写作项目"
+  short_description: "查看写作项目、准备新项目草案，并在确认后整理文章与项目的归属关系。"
+  brand_color: "#737C36"
+  default_prompt: "使用 $growthtrace-writing-projects 查看我的写作项目，并建议这篇文章的归属。"

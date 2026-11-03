@@ -1,0 +1,5 @@
+interface:
+    display_name: 'GrowthTrace 网站运营'
+    short_description: '协调文章、项目、图片、展示稿与生成组件，完成站内跨模块内容运营任务。'
+    brand_color: '#737C36'
+    default_prompt: '使用 $growthtrace-operations 查看我的网站内容，并建议下一步整理工作。'
